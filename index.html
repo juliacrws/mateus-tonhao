@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa História - Julia & Mateus</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💚</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+
+    <div class="container">
+        <header class="playlist-header">
+            <div class="album-cover">
+                <img src="/img/nosso_amor.jpeg" alt="Julia e Mateus">
+            </div>
+            <div class="playlist-info">
+                <h4>PLAYLIST</h4>
+                <h1>Nossa História ❤️</h1>
+                <p>Criado por Julia • <span id="song-count">Desde 16/08/2025</span></p>
+                <div class="buttons">
+                    <button class="btn-play"><i class="fas fa-play"></i> Tocar</button>
+                    <button class="btn-heart"><i class="fas fa-heart"></i></button>
+                </div>
+            </div>
+        </header>
+
+        <section class="section-content">
+            <h2><i class="fas fa-clock"></i> Tempo Juntos</h2>
+            <div id="contador" class="timer-box"></div>
+        </section>
+
+        <section class="section-content">
+            <h2><i class="fas fa-camera"></i> Nossos Momentos</h2>
+            <div class="gallery">
+                <div class="polaroid">
+                    <img src="img/pedido_namoro.jpeg" alt="Pedido no Parque da Água Branca">
+                    <p>O dia que você me pediu em namoro ❤️</p>
+                </div>
+                <div class="polaroid">
+                    <img src="img/primeira_foto.jpeg" alt="Primeira foto">
+                    <p>O começo de tudo</p>
+                </div>
+                <div class="polaroid">
+                    <img src="img/selfie_risos.jpeg" alt="Selfie engraçada">
+                    <p>Nossos surtos & risadas</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-content">
+            <h2><i class="fas fa-map-marker-alt"></i> Lugares Especiais</h2>
+            <div id="map"></div>
+        </section>
+
+        <div style="height: 100px;"></div>
+    </div>
+
+    <div class="music-player">
+        <div class="song-info">
+            <div class="song-text">
+                <h4>Nosso Amor</h4>
+                <p>Feito pra durar</p>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <i class="fas fa-step-backward"></i>
+            <i class="fas fa-play-circle play-icon"></i>
+            <i class="fas fa-step-forward"></i>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

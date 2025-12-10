@@ -1,0 +1,339 @@
+/* Reset básico e Fontes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #121212; /* Fundo Spotify */
+    color: #ffffff;
+    padding-bottom: 100px; /* Espaço para o player fixo não cobrir o conteúdo */
+}
+
+/* Header da Playlist */
+.playlist-header {
+    display: flex;
+    align-items: flex-end;
+    gap: 24px;
+    padding: 30px;
+    background: linear-gradient(to bottom, #535353, #121212); /* Degradê no topo */
+    height: 300px;
+}
+
+
+.album-cover img {
+    width: 232px;
+    height: 232px;
+    box-shadow: 0 4px 60px rgba(0,0,0,.5);
+    object-fit: cover;
+    /* Centraliza na horizontal (50%) e desce 25% do topo */
+    object-position: 50% 25%; 
+}
+
+.playlist-info h4 {
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.playlist-info h1 {
+    font-size: 48px; /* Título grande como no Spotify Desktop */
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.playlist-info p {
+    color: #b3b3b3;
+    font-size: 14px;
+}
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn-play {
+    background-color: #1db954; /* Verde Spotify */
+    color: black;
+    border: none;
+    border-radius: 500px;
+    padding: 14px 32px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.1s;
+}
+
+.btn-play:hover {
+    transform: scale(1.05);
+    background-color: #1ed760;
+}
+
+.btn-heart {
+    background: none;
+    border: none;
+    color: #1db954;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+/* Conteúdo das Seções */
+.section-content {
+    padding: 20px 30px;
+}
+
+.section-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #282828;
+    padding-bottom: 10px;
+}
+
+/* Contador */
+.timer-box {
+    background-color: #181818;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-family: monospace; /* Fonte estilo relógio */
+    text-align: center;
+    color: #b3b3b3;
+    border: 1px solid #282828;
+}
+
+/* Galeria Polaroid */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.polaroid {
+    background-color: #fff;
+    color: #000;
+    padding: 10px 10px 30px 10px;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transform: rotate(-2deg);
+    transition: transform 0.3s;
+    text-align: center;
+}
+
+.polaroid:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.polaroid:hover {
+    transform: scale(1.1) rotate(0);
+    z-index: 10;
+}
+
+.polaroid img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+}
+
+.polaroid p {
+    font-family: 'Courier New', Courier, monospace; /* Fonte manuscrita */
+    font-size: 14px;
+    color: #333;
+}
+
+/* Mapa */
+#map {
+    height: 300px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #282828;
+}
+
+/* Player Fixo (Rodapé) */
+.music-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background-color: #181818;
+    border-top: 1px solid #282828;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1000;
+}
+
+.song-info {
+    display: flex;
+    align-items: center;
+}
+
+.song-text h4 {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.song-text p {
+    font-size: 11px;
+    color: #b3b3b3;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 20px;
+    color: #b3b3b3;
+}
+
+.controls .play-icon {
+    font-size: 32px;
+    color: white;
+    cursor: pointer;
+}
+
+.controls i:hover {
+    color: white;
+}
+/* =========================================
+   EASTER EGGS (Corações Flutuantes)
+   ========================================= */
+.floating-heart {
+    position: fixed;
+    bottom: 90px; /* Começa acima do player */
+    color: #1db954; /* Verde do Spotify (ou use red para vermelho) */
+    font-size: 24px;
+    animation: floatUp 2s linear forwards;
+    z-index: 9999;
+    pointer-events: none; /* O mouse ignora eles */
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-80vh) scale(1.5) rotate(360deg);
+        opacity: 0;
+    }
+}
+/* =========================================
+   NOVOS EASTER EGGS (Vinil & Double Click)
+   ========================================= */
+
+/* 1. Animação de Girar (Vinil) */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.spinning {
+    animation: spin 3s linear infinite; /* Gira para sempre */
+    border-radius: 50%; /* Vira uma bolinha redonda */
+}
+
+/* 2. Coração do Clique Duplo (Insta Style) */
+.click-heart {
+    position: absolute;
+    color: #1db954; /* Verde (ou use #e91e63 para rosa) */
+    font-size: 24px;
+    animation: popUp 0.8s ease-out forwards;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+@keyframes popUp {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.5); opacity: 1; }
+    100% { transform: scale(1) translateY(-50px); opacity: 0; }
+}
+/* =========================================
+   RESPONSIVIDADE (MOBILE & TABLET)
+   Cole isso no FINAL do seu arquivo style.css
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    /* Ajusta o Header (Capa + Textos) */
+    .playlist-header {
+        flex-direction: column; /* Empilha a foto e o texto */
+        align-items: center;    /* Centraliza tudo */
+        text-align: center;
+        height: auto;           /* Altura automática para caber tudo */
+        padding-top: 40px;
+        padding-bottom: 20px;
+        background: linear-gradient(to bottom, #535353, #121212);
+    }
+
+    .album-cover img {
+        width: 180px;  /* Diminui a foto no celular */
+        height: 180px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+        margin-bottom: 20px;
+    }
+
+    .playlist-info h1 {
+        font-size: 32px; /* Diminui o título gigante */
+        margin-top: 10px;
+    }
+
+    .buttons {
+        justify-content: center; /* Centraliza os botões */
+        margin-top: 15px;
+    }
+
+    /* Ajusta o Contador */
+    .timer-box {
+        font-size: 0.9rem; /* Letra menor pro contador caber */
+        padding: 15px;
+    }
+
+    /* Ajusta a Galeria */
+    .polaroid {
+        width: 45%; /* Coloca 2 fotos por linha no celular */
+        margin-bottom: 10px;
+    }
+    
+    /* Se a tela for MUITO pequena (celular antigo), 1 foto por linha */
+    @media (max-width: 480px) {
+        .polaroid {
+            width: 100%;
+            transform: rotate(0deg) !important; /* Tira a rotação pra alinhar melhor */
+            margin-bottom: 20px;
+        }
+    }
+
+    /* Ajusta o Player Fixo */
+    .music-player {
+        padding: 0 15px;
+        height: 80px; /* Um pouco menor */
+    }
+
+    .song-text h4 {
+        font-size: 13px;
+        max-width: 150px; /* Evita que texto longo quebre o layout */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* Esconde os botões de voltar/avançar no celular pra economizar espaço */
+    .controls .fa-step-backward,
+    .controls .fa-step-forward {
+        display: none;
+    }
+
+    .controls .play-icon {
+        font-size: 40px; /* Botão de play maior pra facilitar o toque */
+    }
+}
